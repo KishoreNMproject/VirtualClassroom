@@ -1,3 +1,5 @@
+This readme file will be removed soon
+
 project structure:
 project_folder/
 
