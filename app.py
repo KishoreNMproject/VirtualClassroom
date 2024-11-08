@@ -8,10 +8,10 @@ app.secret_key = 'temporary_key'
 # Database connection
 def get_db_connection():
     return mysql.connector.connect(
-        host='database-2.c5eyis2co1ux.ap-south-1.rds.amazonaws.com',
+        host='vc-db.c90o4qqesdgx.us-east-1.rds.amazonaws.com',
         user='admin',
-        password='azam_1234',
-        database='course_app'
+        password='lmUuyP0sUjhbEqvkku5m',
+        database='vc-db'
     )
 
 # Registration Route
