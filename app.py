@@ -66,6 +66,10 @@ def dashboard():
 @app.route('/')
 def home():
     return render_template('home.html')
+#cloud
+@app.route('/')
+def cloud():
+    return redirect(url_for('cloud'))
 
 # Logout
 @app.route('/logout')
