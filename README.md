@@ -1,4 +1,4 @@
-This readme file will be removed soon
+**THIS README FILE WILL BE REMOVED VERY SOON**
 
 project structure:
 project_folder/
