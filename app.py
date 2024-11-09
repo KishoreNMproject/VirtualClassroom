@@ -8,10 +8,10 @@ app.secret_key = 'temporary_key'
 # Database connection
 def get_db_connection():
     return mysql.connector.connect(
-        host='vc-db.c90o4qqesdgx.us-east-1.rds.amazonaws.com',
+        host='virtual-classroomdb.c90o4qqesdgx.us-east-1.rds.amazonaws.com',
         user='admin',
-        password='lmUuyP0sUjhbEqvkku5m',
-        database='vc-database'
+        password='WOBtRXlwH1SxyLgMc7EX',
+        database='virtual-classroomdb'
     )
 
 # Registration Route
