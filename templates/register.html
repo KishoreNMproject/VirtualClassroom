@@ -1,25 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Design by foolishdeveloper.com -->
+    <title>Glassmorphism Register Form Tutorial in HTML CSS</title>
+ 
+   
+    <link href="register.css" rel="stylesheet">
+    <!-- Stylesheet -->
+
+</style>
 </head>
 <body>
-    <div class="container my-5">
-        <h2>Register</h2>
-        <form action="/register" method="post">
-            <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username" name="username" required>
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Register</button>
-        </form>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
     </div>
+    <form>
+        <h3>Register Here</h3>
+
+        <label for="fullname">Full Name</label>
+        <input type="text" placeholder="Full Name" id="fullname">
+
+        <label for="email">Email</label>
+        <input type="email" placeholder="Email" id="email">
+
+        <label for="username">Username</label>
+        <input type="text" placeholder="Username" id="username">
+
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" id="password">
+
+        <label for="confirmpassword">Confirm Password</label>
+        <input type="password" placeholder="Confirm Password" id="confirmpassword">
+
+        <button type="submit">Register</button> <!-- Added type="submit" for form submission -->
+
+    
+    </form>
 </body>
 </html>
