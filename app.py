@@ -11,7 +11,7 @@ def get_db_connection():
         host='vc-db.c90o4qqesdgx.us-east-1.rds.amazonaws.com',
         user='admin',
         password='lmUuyP0sUjhbEqvkku5m',
-        database='vc-db'
+        database='vc-database'
     )
 
 # Registration Route
