@@ -3,32 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Design by foolishdeveloper.com -->
     <title>AWS Virtual Classroom</title>
- 
-    <link  rel="stylesheet" href="login.css" >
-  
-    
+
+    <link href="/static/login.css" rel="stylesheet">
 </head>
 <body>
-    
+
+    <!-- Background shapes -->
     <div class="background">
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form>
+
+    <!-- Login Form -->
+    <form method="POST" action="{{ url_for('login') }}">
         <h3>Login Here</h3>
 
         <label for="username">Username</label>
-        <input type="text" placeholder="Email or username" id="username" required>
+        <input type="text" name="username" placeholder="Email or username" id="username" required>
 
         <label for="password">Password</label>
-        <input type="password" placeholder="Password" id="password" required>
+        <input type="password" name="password" placeholder="Password" id="password" required>
 
         <button type="submit" class="btn btn-primary">Login</button>
-       
-         
-       
     </form>
+
 </body>
 </html>
