@@ -13,7 +13,7 @@
     left: 0;
     height: 100%; /* Full height of the header */
     width: 400%; /* Adjusted for more images */
-    background-image: url("file:///C:/Users/jeo/Documents/nann%20mudhalvan/VirtualClassroom/src/img2.jpeg"), url("file:///C:/Users/jeo/Documents/nann%20mudhalvan/VirtualClassroom/src/img3.jpeg"); /* Replace with your actual images */   
+    background-image: url("https://img.freepik.com/free-photo/focused-students-using-tablet-discussing-information_1262-14929.jpg"); /* Replace with your actual images */   
     background-size: contain; /* Fit images within the viewport */
     background-repeat: repeat-x; /* Repeat images horizontally */
     background-position: center; /* Center images vertically */
