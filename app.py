@@ -18,19 +18,33 @@ def get_db_connection():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
+        # Collect user data from the form
+        fullname = request.form['fullname']
+        email = request.form['email']
         username = request.form['username']
         password = request.form['password']
+        confirm_password = request.form['confirmpassword']
+        
+        # Check if passwords match
+        if password != confirm_password:
+            return 'Passwords do not match', 400
+        
         hashed_password = generate_password_hash(password, method='sha256')
 
+        # Connect to the database and insert the user details
         conn = get_db_connection()
         cursor = conn.cursor()
-        cursor.execute('INSERT INTO users (username, password_hash) VALUES (%s, %s)', (username, hashed_password))
+        cursor.execute('INSERT INTO users (fullname, email, username, password_hash) VALUES (%s, %s, %s, %s)',
+                       (fullname, email, username, hashed_password))
         conn.commit()
         cursor.close()
         conn.close()
         
         return redirect(url_for('login'))
+    
     return render_template('register.html')
+
+
 
 # Login Route
 @app.route('/login', methods=['GET', 'POST'])
@@ -75,6 +89,7 @@ def cloud():
 @app.route('/logout')
 def logout():
     return redirect(url_for('login'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
