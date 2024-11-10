@@ -5,7 +5,7 @@ import mysql.connector
 app = Flask(__name__)
 app.secret_key = 'temporary_key'
 
-# Database connection new
+# Database connection
 def get_db_connection():
     return mysql.connector.connect(
         host='vclassdb.cr22y8aic3s4.ap-south-1.rds.amazonaws.com',
