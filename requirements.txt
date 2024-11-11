@@ -1,4 +1,10 @@
 Flask==2.0.1
 mysql-connector-python==8.0.26
 werkzeug==2.0.1
+<<<<<<< Updated upstream
 Flask-Bootstrap==3.3.7.1
+=======
+Flask-Bootstrap==3.3.7.1
+boto3==1.26.0
+flask-Uploads==0.2.1
+>>>>>>> Stashed changes

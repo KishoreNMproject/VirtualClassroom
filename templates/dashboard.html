@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< Updated upstream
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>Dashboard</title>
 </head>
@@ -12,5 +13,22 @@
         {% endfor %}
     </ul>
     <a href="{{ url_for('logout') }}">Logout</a>
+=======
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Student Dashboard</h2>
+    
+    <h3>Available Course Materials</h3>
+    <ul>
+        {% for file in course_urls %}
+            <li><a href="{{ file['url'] }}" target="_blank">{{ file['name'] }}</a></li>
+        {% endfor %}
+    </ul>
+
+>>>>>>> Stashed changes
 </body>
 </html>

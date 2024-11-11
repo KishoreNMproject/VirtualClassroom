@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link href="/static/ad_login.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Background shapes -->
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <!-- Admin Login Form -->
+    <form method="POST" action="/adminlogin">
+        <h3>Admin Login</h3>
+
+        <!-- Displaying Error Message if Login Fails -->
+        {% if error %}
+        <p style="color: red;">{{ error }}</p>
+        {% endif %}
+
+        <label for="username">Admin Username</label>
+        <input type="text" name="username" id="username" placeholder="Enter admin username" required>
+
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Enter password" required>
+
+        <button type="submit">Login</button>
+        
+
+</body>
+</html>

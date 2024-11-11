@@ -1,0 +1,167 @@
+/* Wrapper to hide overflow */
+.wrapper {
+    overflow: hidden;
+    height: 100vh; /* Full viewport height */
+    width: 100vw;  /* Full viewport width */
+    position: relative;
+}
+
+/* Background sliding effect */
+.sliding-background { 
+    position: absolute; /* Make background slide independently */ 
+    top: 0; left: 0; 
+    height: 100%; 
+    width: 400%; /* 3 times the viewport width */ 
+    display: flex; /* Use flexbox to align images horizontally */ 
+} 
+.sliding-background div 
+    { width: 100vw; /* Each image takes full viewport width */
+     height: 100%; 
+     background-size: cover; 
+     background-position: center; 
+     flex-shrink: 0; /* Prevent shrinking */
+     } /* Individual backgrounds */ 
+     .sliding-background .bg1 { 
+        background-image: url("https://www.appoccr.com/wp-content/uploads/2024/02/AdobeStock_520599204_Preview.jpeg"); } 
+    .sliding-background .bg2 { 
+        background-image: url("https://media.istockphoto.com/id/1650289337/photo/marketing-automation-concept-using-data-science-to-drive-marketing-automation-develop-a-data.jpg?s=612x612&w=0&k=20&c=p8-x57sFvWnMPpITLxDPFxxt5BBn9fi99iv1t7qzqz4=");
+     } 
+     .sliding-background .bg3 { 
+        background-image: url("https://media.istockphoto.com/id/2105089943/photo/university-student-preparing-for-upcoming-exams-in-a-library.jpg?s=612x612&w=0&k=20&c=hAMT4drSfG1XlYZ_l05P8WG6y23h4HonmYXmABPGmYE=");
+     } /* Keyframes for sliding effect */
+      @keyframes slide { 
+        0% { 
+            transform: translateX(0); 
+        } 
+        100% { 
+            transform: translateX(-300vw); 
+        } 
+    } 
+    .sliding-background {
+         animation: slide 30s linear infinite; /* Slow animation */
+    }
+/* Header content overlay (text, buttons, etc.) */
+.header-content {
+    position: relative;
+    z-index: 10; /* Ensure content is on top of sliding background */
+    text-align: center;
+    color:#2076c6;
+    padding-top: 20vh; /* Adjust for vertical alignment */
+}
+
+.header-content h1 {
+    font-size: 3rem;
+    font-weight: bold;
+
+    
+}
+
+.header-content p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+.btn-conteiner {
+    display: flex;
+    justify-content: center;
+    --color-text: #ffffff;
+    --color-background: #2076c6;
+    --color-outline: #ff145b80;
+    --color-shadow: #00000080;
+  }
+  
+  .btn-content {
+    display: flex;
+    align-items: center;
+    padding: 5px 30px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    color: var(--color-text);
+    background: var(--color-background);
+    transition: 1s;
+    border-radius: 100px;
+    box-shadow: 0 0 0.2em 0 var(--color-background);
+  }
+  
+  .btn-content:hover, .btn-content:focus {
+    transition: 0.5s;
+    -webkit-animation: btn-content 1s;
+    animation: btn-content 1s;
+    outline: 0.1em solid transparent;
+    outline-offset: 0.2em;
+    box-shadow: 0 0 0.4em 0 var(--color-background);
+  }
+  
+  .btn-content .icon-arrow {
+    transition: 0.5s;
+    margin-right: 0px;
+    transform: scale(0.6);
+  }
+  
+  .btn-content:hover .icon-arrow {
+    transition: 0.5s;
+    margin-right: 25px;
+  }
+  
+  .icon-arrow {
+    width: 20px;
+    margin-left: 15px;
+    position: relative;
+    top: 6%;
+  }
+    
+  /* SVG */
+  #arrow-icon-one {
+    transition: 0.4s;
+    transform: translateX(-60%);
+  }
+  
+  #arrow-icon-two {
+    transition: 0.5s;
+    transform: translateX(-30%);
+  }
+  
+  .btn-content:hover #arrow-icon-three {
+    animation: color_anim 1s infinite 0.2s;
+  }
+  
+  .btn-content:hover #arrow-icon-one {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.6s;
+  }
+  
+  .btn-content:hover #arrow-icon-two {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.4s;
+  }
+  
+  /* SVG animations */
+  @keyframes color_anim {
+    0% {
+      fill: white;
+    }
+  
+    50% {
+      fill: var(--color-background);
+    }
+  
+    100% {
+      fill: white;
+    }
+  }
+  
+  /* Button animations */
+  @-webkit-keyframes btn-content {
+    0% {
+      outline: 0.2em solid var(--color-background);
+      outline-offset: 0;
+    }
+  }
+  
+  @keyframes btn-content {
+    0% {
+      outline: 0.2em solid var(--color-background);
+      outline-offset: 0;
+    }
+  }
