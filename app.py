@@ -49,8 +49,8 @@ def register():
 
 # AWS S3 configuration
 s3 = boto3.client('s3', 
-                  aws_access_key_id='AKIAUGO4KSB4FPD36Z44', 
-                  aws_secret_access_key='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',
+                  aws_access_key_id='access key', 
+                  aws_secret_access_key='secret key',
                   region_name='ap-south-1')
 BUCKET_NAME = 'awsprject'
 
