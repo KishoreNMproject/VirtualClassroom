@@ -70,8 +70,8 @@ def login():
 @app.route('/dashboard')
 def dashboard():
     course_urls = [
-        'https://aws-project-virtual-classroom.s3.us-east-1.amazonaws.com/python_code.pdf',
-        'https://aws-project-virtual-classroom.s3.us-east-1.amazonaws.com/Python+Programming.pdf'
+        'https://awsprject.s3.ap-south-1.amazonaws.com/python_code.pdf',
+        'https://awsprject.s3.ap-south-1.amazonaws.com/Python+Programming.pdf'
     ]
     
     return render_template('dashboard.html', course_urls=course_urls)
