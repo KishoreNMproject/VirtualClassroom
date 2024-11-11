@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link href="/static/ad_login.css" rel="stylesheet">
+    <script>
+        // JavaScript function to validate the admin login credentials
+        function validateLogin(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Check if username is 'admin1' and password is '1234'
+            if (username === "admin1" && password === "1234") {
+                alert("Login successful!");
+                // Redirect to the admin dashboard or desired page
+                window.location.href = "/admindashboard";
+            } else {
+                alert("Invalid username or password. Please try again.");
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Background shapes -->
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <!-- Admin Login Form -->
+    <form onsubmit="validateLogin(event)">
+        <h3>Admin Login</h3>
+
+        <label for="username">Admin Username</label>
+        <input type="text" id="username" placeholder="Enter admin username" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter password" required>
+
+        <button type="submit">Login</button>
+    </form>
+
+</body>
+</html>

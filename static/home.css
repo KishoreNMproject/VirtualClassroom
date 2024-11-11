@@ -1,0 +1,50 @@
+/* Wrapper for the entire header */
+.wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Sliding background layer */
+.sliding-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%; /* Full height of the header */
+    width: 400%; /* Adjusted for more images */
+    background-image: url("https://img.freepik.com/free-photo/focused-students-using-tablet-discussing-information_1262-14929.jpg"); /* Replace with your actual images */   
+    background-size: contain; /* Fit images within the viewport */
+    background-repeat: repeat-x; /* Repeat images horizontally */
+    background-position: center; /* Center images vertically */
+    animation: slide 60s linear infinite; /* Slow, smooth sliding animation */
+}
+
+/* Keyframes for sliding animation */
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%); /* Move left by the full width of the images */
+    }
+}
+
+/* Header content overlay */
+.header-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: white;
+    padding-top: 20vh;
+}
+
+.header-content h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.header-content p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
