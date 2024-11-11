@@ -15,7 +15,7 @@
         <div class="shape"></div>
     </div>
 
-    <!-- Login Form -->
+    <!-- User Login Form -->
     <form method="POST" action="{{ url_for('login') }}">
         <h3>Login Here</h3>
 
@@ -26,7 +26,17 @@
         <input type="password" name="password" placeholder="Password" id="password" required>
 
         <button type="submit" class="btn btn-primary">Login</button>
+
+        <!-- Admin Button to link to admin login page -->
+        <button type="button" class="btn btn-admin" onclick="redirectToadminlogin()">Admin</button>
     </form>
+
+    <script>
+        // JavaScript function to redirect to the admin login page
+        function redirectToadminlogin() {
+            window.location.href = "/adminlogin"; // Set this URL to match your admin login page route
+        }
+    </script>
 
 </body>
 </html>

@@ -90,6 +90,10 @@ def cloud():
 def logout():
     return redirect(url_for('login'))
 
+@app.route('/adminlogin')
+def adminlogin():
+    return render_template('adminlogin.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
