@@ -1,50 +1,155 @@
-/* Wrapper for the entire header */
+/* Wrapper to hide overflow */
 .wrapper {
-    position: relative;
     overflow: hidden;
-    height: 100vh;
-    width: 100vw;
+    height: 100vh; /* Full viewport height */
+    width: 100vw;  /* Full viewport width */
+    position: relative;
 }
 
-/* Sliding background layer */
+/* Background sliding effect */
 .sliding-background {
-    position: absolute;
+    position: absolute; /* Make background slide independently */
     top: 0;
     left: 0;
-    height: 100%; /* Full height of the header */
-    width: 400%; /* Adjusted for more images */
-    background-image: url("https://img.freepik.com/free-photo/focused-students-using-tablet-discussing-information_1262-14929.jpg"); /* Replace with your actual images */   
-    background-size: contain; /* Fit images within the viewport */
-    background-repeat: repeat-x; /* Repeat images horizontally */
-    background-position: center; /* Center images vertically */
-    animation: slide 60s linear infinite; /* Slow, smooth sliding animation */
+    background-image: url("https://www.appoccr.com/wp-content/uploads/2024/02/AdobeStock_520599204_Preview.jpeg"),url("https://planusa-org-staging.s3.amazonaws.com/public/uploads/2022/12/1000IMG_1074.jpg"),url("https://thumbs.dreamstime.com/z/close-up-concept-students-studying-classroom-lecture-close-up-concept-students-studying-classroom-lecture-neural-309482839.jpg");
+     background-size: contain;
+    background-position:left, center,right; /* Adjusts images to cover the area */
+    background-repeat: repeat-x; /* Repeats horizontally */
+    height: 100%;
+    width: 300%; /* 3 times viewport width for 3 images */
+    animation: slide 30s linear infinite; /* Slow animation */
 }
-
-/* Keyframes for sliding animation */
 @keyframes slide {
     0% {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-100%); /* Move left by the full width of the images */
+        transform: translateX(-100%); /* Slide background fully to the left */
     }
 }
 
-/* Header content overlay */
+/* Header content overlay (text, buttons, etc.) */
 .header-content {
     position: relative;
-    z-index: 10;
+    z-index: 10; /* Ensure content is on top of sliding background */
     text-align: center;
-    color: white;
-    padding-top: 20vh;
+    color:#ff135a;
+    padding-top: 20vh; /* Adjust for vertical alignment */
 }
 
 .header-content h1 {
     font-size: 3rem;
     font-weight: bold;
+
+    
 }
 
 .header-content p {
     font-size: 1.5rem;
     margin-bottom: 20px;
 }
+.btn-conteiner {
+    display: flex;
+    justify-content: center;
+    --color-text: #ffffff;
+    --color-background: #ff135a;
+    --color-outline: #ff145b80;
+    --color-shadow: #00000080;
+  }
+  
+  .btn-content {
+    display: flex;
+    align-items: center;
+    padding: 5px 30px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    color: var(--color-text);
+    background: var(--color-background);
+    transition: 1s;
+    border-radius: 100px;
+    box-shadow: 0 0 0.2em 0 var(--color-background);
+  }
+  
+  .btn-content:hover, .btn-content:focus {
+    transition: 0.5s;
+    -webkit-animation: btn-content 1s;
+    animation: btn-content 1s;
+    outline: 0.1em solid transparent;
+    outline-offset: 0.2em;
+    box-shadow: 0 0 0.4em 0 var(--color-background);
+  }
+  
+  .btn-content .icon-arrow {
+    transition: 0.5s;
+    margin-right: 0px;
+    transform: scale(0.6);
+  }
+  
+  .btn-content:hover .icon-arrow {
+    transition: 0.5s;
+    margin-right: 25px;
+  }
+  
+  .icon-arrow {
+    width: 20px;
+    margin-left: 15px;
+    position: relative;
+    top: 6%;
+  }
+    
+  /* SVG */
+  #arrow-icon-one {
+    transition: 0.4s;
+    transform: translateX(-60%);
+  }
+  
+  #arrow-icon-two {
+    transition: 0.5s;
+    transform: translateX(-30%);
+  }
+  
+  .btn-content:hover #arrow-icon-three {
+    animation: color_anim 1s infinite 0.2s;
+  }
+  
+  .btn-content:hover #arrow-icon-one {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.6s;
+  }
+  
+  .btn-content:hover #arrow-icon-two {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.4s;
+  }
+  
+  /* SVG animations */
+  @keyframes color_anim {
+    0% {
+      fill: white;
+    }
+  
+    50% {
+      fill: var(--color-background);
+    }
+  
+    100% {
+      fill: white;
+    }
+  }
+  
+  /* Button animations */
+  @-webkit-keyframes btn-content {
+    0% {
+      outline: 0.2em solid var(--color-background);
+      outline-offset: 0;
+    }
+  }
+  
+  @keyframes btn-content {
+    0% {
+      outline: 0.2em solid var(--color-background);
+      outline-offset: 0;
+    }
+  }
