@@ -4,6 +4,8 @@ import mysql.connector
 import os
 import boto3
 from werkzeug.utils import secure_filename
+from dotenv import load_dotenv
+
 
 app = Flask(__name__)
 app.secret_key = 'temporary_key'
@@ -48,9 +50,12 @@ def register():
     return render_template('register.html')
 
 # AWS S3 configuration
+load_dotenv()
+access_key=os.getenv('AWS_ACCESS_KEY_ID')
+secret_key=os.getenv('AWS_SECRET_ACCESS_KEY')
 s3 = boto3.client('s3', 
-                  aws_access_key_id='access key', 
-                  aws_secret_access_key='secret key',
+                  aws_access_key_id='access_key', 
+                  aws_secret_access_key='secret_key',
                   region_name='ap-south-1')
 BUCKET_NAME = 'awsprject'
 
