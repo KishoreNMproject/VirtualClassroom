@@ -1,6 +1,9 @@
 from flask import Flask, request, redirect, url_for, render_template
 from werkzeug.security import generate_password_hash, check_password_hash
 import mysql.connector
+import os
+import boto3
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 app.secret_key = 'temporary_key'
@@ -44,7 +47,52 @@ def register():
     
     return render_template('register.html')
 
+# AWS S3 configuration
+s3 = boto3.client('s3', 
+                  aws_access_key_id='AKIAUGO4KSB4FPD36Z44', 
+                  aws_secret_access_key='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',
+                  region_name='ap-south-1')
+BUCKET_NAME = 'awsprject'
 
+@app.route('/admindashboard', methods=['GET'])
+def admindashboard():
+    return render_template('admindashboard.html')
+
+@app.route('/upload_course', methods=['POST'])
+def upload_course():
+    if 'course_pdf' not in request.files:
+        flash('No file part')
+        return redirect(url_for('admindashboard'))
+    
+    file = request.files['course_pdf']
+    course_name = request.form['course_name']
+
+    if file.filename == '':
+        flash('No selected file')
+        return redirect(url_for('admindashboard'))
+    
+    if file and file.filename.endswith('.pdf'):
+        # Secure the filename
+        filename = secure_filename(file.filename)
+        # Upload to S3
+        s3.upload_fileobj(
+            file,
+            BUCKET_NAME,
+            filename,
+            ExtraArgs={"ContentType": "application/pdf"}
+        )
+        # Save course info to database
+        cur = mysql.connection.cursor()
+        s3_url = f"https://{BUCKET_NAME}.s3.ap-south-1.amazonaws.com/{filename}"
+        cur.execute("INSERT INTO courses (course_name, pdf_url) VALUES (%s, %s)", (course_name, s3_url))
+        mysql.connection.commit()
+        cur.close()
+        
+        flash('Course uploaded successfully!')
+        return redirect(url_for('admindashboard'))
+    else:
+        flash('Invalid file type. Please upload a PDF.')
+        return redirect(url_for('admindashboard'))
 
 # Login Route
 @app.route('/login', methods=['GET', 'POST'])
@@ -93,7 +141,6 @@ def logout():
 @app.route('/adminlogin')
 def adminlogin():
     return render_template('adminlogin.html')
-
 
 if __name__ == '__main__':
     app.run(debug=True)
