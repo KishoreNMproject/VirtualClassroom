@@ -3,4 +3,4 @@ mysql-connector-python==8.0.26
 werkzeug==2.0.1
 Flask-Bootstrap==3.3.7.1
 boto3==1.35.37
-gunicorn==20.1.0
+gunicorn==22.0.0
